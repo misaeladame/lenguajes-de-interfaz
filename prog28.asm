@@ -10,7 +10,6 @@
 	cOchoPor	DB 0Ah, 0Dh, '8 X $'
 	cIgual		DB ' = $'
 	vCont		DB 01h
-	vSuma		DB 00h
 	vDecSuma	DB 00h
 	vUniSuma	DB 00h
 	
@@ -47,15 +46,10 @@
 			mov dx, offset cIgual
 			int 21h
 			
-			
-			
-			
-			mov al, vSuma
+			mov ax, bx
 			add al, 08
-			
-			
-			
 			aaa
+			mov bx, ax
 			
 			mov vDecSuma, ah 
 			mov vUniSuma, al
