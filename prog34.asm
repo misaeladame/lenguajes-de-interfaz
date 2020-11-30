@@ -6,7 +6,7 @@
 .STACK 20h
 .DATA
 	cDescrip	DB 'Programa que lee una cadena de caracteres y al final indica '
-			    DB 'cuantas palabras hay en la cadena ingresada'
+				DB 'cuantas palabras hay en la cadena ingresada'
 				DB 0Ah, 0Dh, 0ah, '$'    	
 	cIngresar	DB 0Ah, 'Ingrese una cadena de texto: $'
 	cFinprog	DB 0Ah, 0Ah, '---- FIN DEL PROGRAMA ----$'
