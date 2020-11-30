@@ -9,7 +9,7 @@
 .MODEL SMALL
 .STACK 20h
 .DATA
-	cDescrip	DB 'Programa que lee una serie de numeros y termina cuandi la suma '
+	cDescrip	DB 'Programa que lee una serie de numeros y termina cuando la suma '
 			    DB 'de estos es mayor o igual a 20'
 				DB 0Ah, 0Dh, 0ah, '$'    	
 	cIngresar	DB 0Ah, 'Ingrese un numero: $'
@@ -40,7 +40,7 @@
 			int 21h
 			
 			cmp al, 30h
-			jb  cNoValido 
+			jb  eNoValido 
 			
 			cmp al, 39h 
 			ja	eNoValido
@@ -51,7 +51,7 @@
 			mov ah, 09h
 			mov dx, offset cNoValido
 			int 21h
-			jmp cIngresar
+			jmp eIngresar
 			
 		eContinuar:
 			inc vCont
@@ -70,8 +70,6 @@
 			mov dl, vSuma 
 			add dl, 30h
 			int 21h
-			
-			
 			
 		eFinProg:
 			mov ah, 09h
