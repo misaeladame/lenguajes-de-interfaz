@@ -6,7 +6,7 @@
 .MODEL SMALL
 .STACK 20h
 .DATA
-	cDescrip 	DB 'Programa que muestra la tabla de multiplicar del numero'
+	cDescrip	DB 'Programa que muestra la tabla de multiplicar del numero'
 				DB ' ingresado por el usuario...'
 				DB 0Ah, 0Dh, 0ah, '$'    	
 	cIngresar	DB 'Ingrese el numero del cual desea conocer su tabla: $'
