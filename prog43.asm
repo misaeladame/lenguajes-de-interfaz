@@ -1,6 +1,8 @@
 ;prog43.asm
-;Programa en ensamblador el cual limpia la pantalla y pinta 8 rectangulos
-;"interiores" (uno m√†s peque√±o que otro)...
+;Programa en ensamblador el cual limpia la pantalla y pinta 8 barras
+;"interiores" (uno m‡s pequeÒo que otro)...
+;A diferencia del prog41, solo que ahora en lugar de "columnas", pintamos
+;"renglones"
 
 Pinta MACRO Color, eIni, eFin
 	mov ah, 06h
@@ -29,26 +31,20 @@ ENDM
 .MODEL SMALL
 .STACK 20h
 .DATA
-
+	cSaludo    DB 'Hola chavos!$'
+	cDespedida DB 0Ah, 0Dh, 'Adios$'
 .CODE
 	inicio: 
 		Datos
-		
-		mov bh, 00h
-		mov ch, 00h
-		mov cl, 00h
-		mov dh, 18
-		mov dl, 4Fh
 
-		eCiclo:
-			Pinta bh, cx, dx
-			add bh, 10h
-			add ch, 01h
-			add cl, 05h
-			sub dh, 01h
-			sub dl, 05h
-			cmp bh, 80h
-			jb  eCiclo
+		Pinta 	07h, 0000h, 184Fh
+		Pinta   17h, 0105h, 174Ah
+		Pinta   27h, 020Ah, 1645h
+		Pinta	37h, 030Fh, 1540h
+		Pinta	47h, 0414h, 143Bh
+		Pinta	57h, 0519h, 1336h
+		Pinta	67h, 061Eh, 1231h
+		Pinta	77h, 0723h, 112Ch
 		
 		ReadKey
 		Control
