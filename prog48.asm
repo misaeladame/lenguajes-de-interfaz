@@ -1,5 +1,5 @@
-;prog47.asm
-;Programa en ensamblador el cual dibuja la bandera de Islandia
+;prog48.asm
+;Programa en ensamblador el cual dibuja una barra horizontal creciente
 
 Pinta MACRO Color, eIni, eFin
 	mov ah, 06h
@@ -32,13 +32,17 @@ ENDM
 .CODE
 	inicio: 
 		Datos
+		Pinta 07h, 0000h, 184Fh ;limpiamos la pantalla
+		Pinta 17h, 0000h, 1800h ;azul
 		
-		Pinta 17h, 0000h, 184Fh ;azul
-		Pinta 77h, 0012h, 1818h ;blanco
-		Pinta 77h, 0A00h, 0D4Fh ;blanco
-		Pinta 47h, 0014h, 1816h ;rojo
-		Pinta 47h, 0B00h, 0C4Fh ;rojo
-		
+		eCrece:
+			ReadKey
+			add cl, 01h
+			add dl, 01h
+			Pinta bh, cx, dx
+			cmp dl, 4Fh
+			jb  eCrece
+
 		ReadKey
 		Control
 			
